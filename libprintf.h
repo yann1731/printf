@@ -3,24 +3,8 @@
 
 int		ft_printf(const char *, ...);
 
-char    *get_flags(const char *s);
+int		validateflags(int c);
 
-void	print_c(int c);
+char	*strcreate(const char *s, va_list ap);
 
-void	print_s(char *s);
-
-void	print_d(long long d);
-
-void	print_i(int i);
-
-void	print_p(void *ptr);
-
-void	print_u(unsigned long long uint);
-
-void	print_hexa(long long hexaint, char c);
-
-void	print_percent(void);
-
-int		validateflags(const char *s);
-
-void    flagdispatch(char *flags, va_list ap);
+char	*ft_substrfree(const char *s, unsigned int start, size_t len, char *tofree);

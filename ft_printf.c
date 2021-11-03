@@ -6,14 +6,8 @@
 
 int	ft_printf(const char *s, ...)
 {
-	char	*flags;
+	char	*rstr;
 	va_list	ap;
-
-	flags = get_flags(s);
-	if (flags == NULL)
-		return (0);
-	va_start(ap, s);
-	flagdispatch(flags, ap);
-	va_end(ap);
-	return (1);
+	rstr = strcreate(s, ap);
+	
 }

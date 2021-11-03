@@ -1,15 +1,9 @@
 #include "libprintf.h"
 
-int	validateflags(const char *s)
+int	validateflags(int c)
 {
-	while (*s)
-	{
-		if (*s != 'c' && *s != 's' && *s != 'p' && *s != 'd'
-			&& *s != 'i' && *s != 'u' && *s != 'x' && *s != 'X' && *s != '%')
-		{
+		if (c != 'c' && c != 's' && c != 'p' && c != 'd'
+			&& c != 'i' && c != 'u' && c != 'x' && c != 'X' && c != '%')
 			return (0);
-		}
-		s++;
-	}
 	return (1);
 }

@@ -22,3 +22,5 @@ void	print_hexa(long long hexaint, char c);
 void	print_percent(void);
 
 int		validateflags(const char *s);
+
+void    flagdispatch(char *flags, va_list ap);

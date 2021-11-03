@@ -1,4 +1,5 @@
 #include "libprintf.h"
+#include "libft.h"
 
 void	print_s(char *s)
 {

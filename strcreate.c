@@ -11,9 +11,7 @@ char	*strcreate(const char *s, va_list ap)
 	while (*s)
 	{
 		if (s[index] == '%' && s[index - 1] != '%' && validateflags(s[index + 1] == 1))
-		{
-			rstr = dispatchflag(va_arg)
-		}
+			rstr = dispatchflag(s[index + 1], ap, rstr);
 		rstr = ft_substrfree(s, index, 1, rstr);
 		index++;
 	}

@@ -1,19 +1,25 @@
 #include "libft.h"
 #include "libprintf.h"
 
-char	*dispatchflag(int c, va_list ap, char *tofree)
+char	*dispatchflag(int c, va_list *ap, char *tofree)
 {
 	char	*str;
 
 	if (c == 'c')
-		str = ft_strjoin(tofree, va_arg(ap, char));
+		return (str = charjoinfree(tofree, va_arg(*ap, int)));
 	if (c == 's')
-		str = ft_strjoin(tofree, va_arg(ap, char *));
+		return (str = ft_strjoinfree(tofree, va_arg(*ap, char *)));
 	if (c == 'd')
-		str = ft_strjoin(tofree, va_arg(ap, long long));
+		return (str = ft_strjoinfree(tofree, ft_itoa(va_arg(*ap, long long))));
 	if (c == 'p')
-		str = ft_strjoin(tofree, va_arg(ap, void *));
+		return (str = ft_strjoin(tofree, va_arg(*ap, void *)));
 	if (c == 'i')
-		str = ft_strjoin(tofree, va_arg(ap, int));
-	if (c == '')
+		return (str = ft_strjoin(tofree, ft_itoa(va_arg(*ap, int))));
+	//if (c == 'u')
+		//return (str = )
+	//if (c == 'x' || c == 'X')
+	//	return (str = itoahex(c, tofree, va_arg(*ap, long long)));
+	if (c == '%')
+		return (str = charjoinfree(tofree, '%'));
+	return (NULL);
 }

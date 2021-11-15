@@ -10,9 +10,15 @@ char	*strcreate(const char *s, va_list ap)
 	rstr = malloc(sizeof(char));
 	while (*s)
 	{
-		if (s[index] == '%' && s[index - 1] != '%' && validateflags(s[index + 1] == 1))
-			rstr = dispatchflag(s[index + 1], ap, rstr);
-		rstr = ft_substrfree(s, index, 1, rstr);
-		index++;
+		if (*s == '%' && *(s - 1) != '%' && validateflag(*(s + 1)) == 1)
+		{
+			rstr = dispatchflag(*(s + 1), &ap, rstr);
+			s += 2;
+		if (*s == '\0')
+			break;
+		}
+		rstr = charjoinfree(rstr, *s);
+		s++;
 	}
+	return (rstr);
 }
